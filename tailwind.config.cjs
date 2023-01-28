@@ -9,7 +9,10 @@ module.exports = {
       colors: {
         "morado": "#0F172A",
         "moradito": "#1E293B",
-        "nuevo" : "rgba(227, 232, 234, .75)"
+        "nuevo" : "rgba(227, 232, 234, .75)",
+        "dark" : "#000000",
+        "azul" : "#27ADAC",
+        "nav" : "#00051de8"
       }
     },
   },

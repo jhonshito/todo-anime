@@ -4,13 +4,16 @@ import App from './App'
 import './index.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Manga from './components/Manga'
+import Navbar from './components/Navbar'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
     <Routes>
-      <Route index element={<App />} />
-      <Route path='manga/:id' element={<Manga />} />
+      <Route path='/' element={<Navbar />}>
+        <Route index element={<App />} />
+        <Route path='manga/:id' element={<Manga />} />
+      </Route>
     </Routes>
     </BrowserRouter>
   </React.StrictMode>,

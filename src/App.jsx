@@ -2,13 +2,16 @@ import { useState, useEffect } from "react"
 import "animate.css"
 import Loading from "./components/Loading"
 import { Link } from "react-router-dom"
+// import Navbar from "./components/Navbar"
+import Search from "./components/Search"
 
 function App() {
 
   const [valor, setValor] = useState([])
   const [loading, setLoading] = useState(false)
+  const [buscar, setBuscar] = useState('')
 
-  const api = `https://api.jikan.moe/v4/manga?q=`
+  const api = `https://api.jikan.moe/v4/anime?q=${buscar}`
 
   const fetchData = async() => {
     
@@ -25,9 +28,13 @@ function App() {
     }
   }
 
+  const buscarDatos = (valor) => {
+    setBuscar(valor)
+  }
+
   useEffect(() => {
     fetchData()
-  },[])
+  },[buscar])
 
   console.log(valor)
 
@@ -36,10 +43,14 @@ function App() {
   }
 
   return (
-    <div className="bg-morado pb-40">
+    <main>
+    {/* <Navbar /> */}
+    <div className="bg-morado pb-[100vh] h-full pt-28">
+    <Search buscarDatos={buscarDatos} />
       <section className="container mx-auto">
         <div className="flex flex-wrap justify-center gap-4">
           {
+            valor == 0 ? <div className="w-[80%] bg-slate-50 py-4"><h1 className="text-center uppercase font-bold">el anime con el nombre de : <span className="text-azul">{buscar}</span> no existe</h1></div> :
             valor.map(item => (
               <Link to={`/manga/${item.mal_id}`} className="bg-moradito mt-2 div relative group" key={item.mal_id}>
                 <img className="w-[12rem] h-full ease-in duration-300" src={item.images.jpg.image_url} alt="" />
@@ -49,11 +60,11 @@ function App() {
                   </div>
                 </article>
                 <div className="flex bg-moradito absolute top-0 px-2 py-1 text-white font-semibold">
-                  <span>{item.published.prop.from.day}</span>
+                  <span>{item.aired.prop.from.day}</span>
                   <span>/</span>
-                  <span>{item.published.prop.from.month}</span>
+                  <span>{item.aired.prop.from.month}</span>
                   <span>/</span>
-                  <span>{item.published.prop.from.year}</span>
+                  <span>{item.aired.prop.from.year}</span>
                 </div>
               </Link>
             ))
@@ -61,6 +72,7 @@ function App() {
         </div>
       </section>
     </div>
+    </main>
   )
 }
 
