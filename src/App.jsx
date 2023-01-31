@@ -44,13 +44,12 @@ function App() {
 
   return (
     <main>
-    {/* <Navbar /> */}
     <div className="bg-morado pb-[100vh] h-full pt-28">
     <Search buscarDatos={buscarDatos} />
       <section className="container mx-auto">
         <div className="flex flex-wrap justify-center gap-4">
           {
-            valor == 0 ? <div className="w-[80%] bg-slate-50 py-4"><h1 className="text-center uppercase font-bold">el anime con el nombre de : <span className="text-azul">{buscar}</span> no existe</h1></div> :
+            valor == 0 ? <div className="w-[80%] text-sus-2 border-2 border-solid border-sus-3 bg-sus-1 rounded-md py-4"><h1 className="text-center uppercase font-bold">el anime con el nombre de : <span className="text-nav">{buscar}</span> no existe</h1></div> :
             valor.map(item => (
               <Link to={`/manga/${item.mal_id}`} className="bg-moradito mt-2 div relative group" key={item.mal_id}>
                 <img className="w-[12rem] h-full ease-in duration-300" src={item.images.jpg.image_url} alt="" />

@@ -2,7 +2,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-const Search = ({ buscarDatos }) => {
+const SearchMangas = ({buscarDatos}) => {
     const [valor, setValor] = useState('')
 
     const handleChange = ({target}) => {
@@ -23,4 +23,4 @@ const Search = ({ buscarDatos }) => {
   )
 }
 
-export default Search
+export default SearchMangas

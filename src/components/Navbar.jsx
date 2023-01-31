@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
 const Navbar = () => {
   return (
@@ -11,8 +11,8 @@ const Navbar = () => {
         <span className='text-azul'>anime</span>
       </div>
       <nav className='flex justify-center mt-2 gap-x-4 text-lg uppercase font-semibold'>
-        <a href="">animes</a>
-        <a href="">mangas</a>
+        <Link to="/">animes</Link>
+        <Link to="/mangas">mangas</Link>
         <a href="">personajes</a>
       </nav>
     </header>

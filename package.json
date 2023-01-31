@@ -12,8 +12,11 @@
     "animate.css": "^4.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
     "react-player": "^2.11.0",
     "react-router-dom": "^6.7.0",
+    "react-slick": "^0.29.0",
+    "swiper": "^8.4.7",
     "video-react": "^0.16.0"
   },
   "devDependencies": {
