@@ -40,3 +40,28 @@
       transform: rotate(1800deg);
     }
   }
+
+  #carrusel-items{
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 50px 0px;
+    cursor: pointer;
+    justify-content: center;
+  }
+
+  #carrusel-item{
+    min-width: 300px;
+    max-width: 300px;
+    height: 200px;
+  }
+
+  #carrusel-item img{
+    width: 100vh;
+    height: 100%;
+    /* object-fit: contain; */
+  }
+
+  #carrusel-item:hover{
+    transform: scale(1.2);
+  }

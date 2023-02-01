@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
+import Relacion from './Relacion';
 
 const DatosMangas = () => {
     const { id } = useParams()
@@ -18,6 +19,7 @@ const DatosMangas = () => {
         try {
             const res = await fetch(api);
             const data = await res.json();
+            datos == undefined ? setDatos(data.data) : setDatos(data.data)
             setDatos(data.data)
         } catch (error) {
             console.log(error)
@@ -75,7 +77,7 @@ const DatosMangas = () => {
             </div>
             <div className="md:w-[600px] h-[20%] animate__animated sm:w-[400px] lg:w-[1000px] sm:mt-1 sm:mx-8 ml-5 mr-5">
             <h2 className="text-white text-2xl font-bold text-center sm:text-start">{datos.title}</h2>
-            <div className="mt-1 mb-4 flex flex-wrap justify-center sm:justify-start gap-y-2 xl:gap-y-0 gap-x-4">
+            <div className="mt-1 mb-4 flex flex-wrap justify-center sm:justify-start gap-y-2 xl:gap-y-1 gap-x-4">
                 {
                     datos.genres == undefined ? <p className="text-white">no hay datos</p>:
                     datos.genres.map(item => (
@@ -88,6 +90,7 @@ const DatosMangas = () => {
             </div>
             </div>
         </section>
+        <Relacion title={datos.title} id={id} />
     </main>
   )
 }
