@@ -68,7 +68,7 @@ const DatosMangas = () => {
         <section className="w-full h-full sm:flex">
             <div className="w-60 mx-auto sm:ml-16 pt-1 sm:mt-0 relative">
                 {
-                    datos.images == undefined ? '':
+                    datos == undefined || datos.images == undefined ? <p>no hay imagen</p>:
                     <img src={datos.images.jpg.image_url} className="" alt={`Esta es la imagen de ${datos.name}`} />
                 }
                 <div className="text-white absolute top-1">
@@ -90,7 +90,7 @@ const DatosMangas = () => {
             </div>
             </div>
         </section>
-        <Relacion title={datos.title} id={id} />
+        <Relacion title={datos.title} />
     </main>
   )
 }

@@ -1,9 +1,11 @@
 
 import React from 'react'
 import { useEffect } from 'react';
-import { useState, useRef } from 'react'
+import { useState } from 'react'
+import { useParams } from 'react-router-dom';
 
-const Relacion = ({id, title}) => {
+const Relacion = ({title}) => {
+  const { id } = useParams() 
     const [datos, setDatos] = useState([]);
     let api = `https://api.jikan.moe/v4/manga/${id}/recommendations`;
     
@@ -20,7 +22,9 @@ const Relacion = ({id, title}) => {
     console.log(datos)
 
     useEffect(() => {
-        fetchPersonajes()
+      fetchPersonajes()
+      setTimeout(() => {
+
         const myRef = document.getElementById('carrusel-items')
         let intervalo = null;
         let step = 1.5;
@@ -47,6 +51,8 @@ const Relacion = ({id, title}) => {
             myRef.removeEventListener("mouseover", stop);
             myRef.removeEventListener("mouseout", start);
           };
+      },3000)
+
     },[])
     
   return (
@@ -54,7 +60,7 @@ const Relacion = ({id, title}) => {
         <h2 className='text-white text-center text-3xl font-bold'>Mangas recomendados</h2>
         <div id="carrusel-items">
             {
-                datos == 0 ? <div className="w-[80%] mx-auto text-sus-2 border-2 border-solid border-sus-3 bg-sus-1 rounded-md py-4"><h1 className="text-center uppercase font-bold">el manga con el nombre de : <span className="text-nav">{title}</span> no tiene mangas recomendados</h1></div>:
+                datos == undefined || datos == 0 ? <div className="w-[80%] mx-auto text-sus-2 border-2 border-solid border-sus-3 bg-sus-1 rounded-md py-4"><h1 className="text-center uppercase font-bold">el manga con el nombre de : <span className="text-nav">{title}</span> no tiene mangas recomendados</h1></div>:
                 datos.map(item => (
                     <div key={item.entry.mal_id} id='carrusel-item'>
                         <img src={item.entry.images.jpg.image_url} alt="" />
