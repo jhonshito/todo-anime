@@ -121,7 +121,6 @@ const Manga = () => {
                 }
             </div>
         </section>
-
     </section>
     </div> 
   )

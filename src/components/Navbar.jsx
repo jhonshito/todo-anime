@@ -13,7 +13,7 @@ const Navbar = () => {
       <nav className='flex justify-center mt-2 gap-x-4 text-lg uppercase font-semibold'>
         <Link to="/">animes</Link>
         <Link to="/mangas">mangas</Link>
-        <a href="">personajes</a>
+        <Link to="/personajes">personajes</Link>
       </nav>
     </header>
       <Outlet />
