@@ -36,8 +36,6 @@ function App() {
     fetchData()
   },[buscar])
 
-  console.log(valor)
-
   if(loading){
     return <Loading />;
   }

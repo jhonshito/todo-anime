@@ -55,7 +55,9 @@ const DatosMangas = () => {
     }
 
     useEffect(() => {
-        fetchDataManga();
+        setTimeout(function(){
+            fetchDataManga();
+        },1000)
     },[])
 
     useEffect(() => {

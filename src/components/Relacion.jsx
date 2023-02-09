@@ -2,7 +2,8 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import './carrousel.css'
 
 const Relacion = ({title}) => {
   const { id } = useParams() 
@@ -62,10 +63,10 @@ const Relacion = ({title}) => {
             {
                 datos == undefined || datos == 0 ? <div className="w-[80%] mx-auto text-sus-2 border-2 border-solid border-sus-3 bg-sus-1 rounded-md py-4"><h1 className="text-center uppercase font-bold">el manga con el nombre de : <span className="text-nav">{title}</span> no tiene mangas recomendados</h1></div>:
                 datos.map(item => (
-                    <div key={item.entry.mal_id} id='carrusel-item'>
-                        <img src={item.entry.images.jpg.image_url} alt="" />
+                    <Link to={`/dataManga/${item.entry.mal_id}`} key={item.entry.mal_id} id='carrusel-item'>
+                        <img className='carroul w-full' src={item.entry.images.jpg.image_url} alt="" />
                         <p className='text-center text-white font-semibold'>{item.entry.title}</p>
-                    </div>
+                    </Link>
                 ))
             }
         </div>

@@ -32,7 +32,6 @@ const Mangas = () => {
     useEffect(() => {
         fetchMangas()
     },[api])
-    console.log(datos)
 
     if(loading){
         return <Loading />

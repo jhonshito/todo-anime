@@ -24,8 +24,6 @@ const Personajes = () => {
         }
     }
 
-    console.log(datos)
-
     const buscarDatos = (valor) => {
         console.log(valor)
         setBuscar(valor)
@@ -54,13 +52,6 @@ const Personajes = () => {
                                     <p className="font-bold animate__animated animate__zoomIn">{item.name}</p>
                                 </div>
                             </article>
-                            {/* <div className="flex bg-moradito absolute top-0 px-2 py-1 text-white font-semibold">
-                                <span>{item.published.prop.from.day}</span>
-                                <span>/</span>
-                                <span>{item.published.prop.from.month}</span>
-                                <span>/</span>
-                                <span>{item.published.prop.from.year}</span>
-                            </div> */}
                         </Link>
                     ))
                 }
